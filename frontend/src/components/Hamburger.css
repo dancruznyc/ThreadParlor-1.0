@@ -1,0 +1,48 @@
+.hamburger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 3.2rem;
+  width: 3.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: 1.8rem;
+  left: -10rem;
+  transition: all 0.4s ease-in-out;
+}
+
+.hamburger-line {
+  width: 3.5rem;
+  height: 0.3rem;
+  background-color: white;
+  position: absolute;
+  transition: all 0.4s ease-in-out;
+}
+
+.hamburger-mid {
+  top: 1.3rem;
+}
+
+.hamburger-bot {
+  top: 2.6rem;
+}
+
+.hamburger-top--active {
+  transform: rotate(135deg);
+  top: 1rem;
+}
+
+.hamburger-mid--active {
+  opacity: 0;
+}
+
+.hamburger-bot--active {
+  transform: rotate(-135deg);
+  top: 1rem;
+}
+
+@media all and (max-width: 900px) {
+  .hamburger-btn {
+    left: 1.5rem;
+  }
+}

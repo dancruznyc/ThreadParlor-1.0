@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import "./Hamburger.css";
 
-const Hamburger = () => {
+const Hamburger = ({ navController, sideNavController }) => {
   const [hamburgerActive, setHamburgerActive] = useState("");
   function hamburgerClick() {
-    if (!hamburgerActive) hamburgerActive = setHamburgerActive("--active");
-    else hamburgerActive = setHamburgerActive("");
+    if (!hamburgerActive) {
+      setHamburgerActive("--active");
+      navController("navigation--active");
+      sideNavController("side-nav--container--active");
+    } else {
+      setHamburgerActive("");
+      navController("");
+      sideNavController("");
+    }
   }
 
   return (

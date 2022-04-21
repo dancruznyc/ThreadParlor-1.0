@@ -1,5 +1,62 @@
-.side-nav--container {
+.side-nav--overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.178);
+}
+
+.side-nav--container {
+  width: 32rem;
+  height: 100vh;
+  background-color: white;
+  position: absolute;
+  left: -32rem;
+  transition: left 0.4s ease-in-out;
+}
+
+.side-nav--content {
+  width: 30rem;
+  height: 100vh;
+  background-color: #252222;
+  padding-top: 6.5rem;
+}
+
+.side-nav--btns {
+  width: 100%;
+  border-bottom: solid 1px white;
+}
+
+.side-nav--login {
+  height: 4rem;
+  width: 100%;
+  border-bottom: solid 1px white;
+  color: white;
+  font-size: 1.6rem;
+  display: inline-block;
+  background-color: black;
+}
+
+.side-nav--currency {
+  height: 4rem;
+  width: 50%;
+  font-size: 1.6rem;
+  color: white;
+  display: inline-block;
+  border-right: solid 1px white;
+  background-color: black;
+}
+
+.side-nav--location {
+  height: 4rem;
+  width: 50%;
+  font-size: 1.6rem;
+  color: white;
+  display: inline-block;
+  background-color: black;
+}
+
+.side-nav--container--active {
+  left: 0;
 }

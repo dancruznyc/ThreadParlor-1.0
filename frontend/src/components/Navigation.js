@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Hamburger from "./Hamburger";
 import "./Navigation.css";
 
-function Navigation() {
+function Navigation({ sideNavHelper }) {
+  const [navActive, setNavActive] = useState("");
+  function hamburgerHelper(classN) {
+    setNavActive(classN);
+  }
+
   return (
-    <nav className="navigation">
+    <nav className={`navigation ${navActive}`}>
       <div className="nav-top">
         <div> US | UK | EU</div>
         <div className="nav-cta">FREE shipping on all orders over $150</div>
         <div className="nav-icons"></div>
       </div>
       <div className="nav-bottom">
-        <Hamburger />
+        <Hamburger
+          navController={hamburgerHelper}
+          sideNavController={sideNavHelper}
+        />
         <div className="nav-logo">Thread Parlor</div>
         <ul className="nav-list">
           <li className="nav-item">Shop</li>

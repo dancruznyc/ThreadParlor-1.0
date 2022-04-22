@@ -1,6 +1,5 @@
 import "./App.css";
 import React, { useState } from "react";
-import Carousel from "./components/Carousel";
 import Navigation from "./components/Navigation";
 import SideNavigation from "./components/SideNavigation";
 import Home from "./pages/Home";

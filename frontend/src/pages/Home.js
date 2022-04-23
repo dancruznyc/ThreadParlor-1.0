@@ -1,5 +1,6 @@
 import React from "react";
 import Carousel from "../components/Carousel";
+import NewsLetter from "../components/NewsLetter";
 import ShopItemCard from "../components/ShopItemCard";
 import "./Home.css";
 
@@ -15,7 +16,8 @@ const Home = () => {
     <div className="home--container">
       <Carousel />
       <ShopItemCard shopItemData={mockup} />
-      <div>f</div>
+
+      <NewsLetter />
     </div>
   );
 };

@@ -25,7 +25,7 @@ function Navigation({ sideNavHelper }) {
           <li className="nav-item">Shop</li>
           <li className="nav-item">LookBook</li>
           <li className="nav-item">News</li>
-          <li className="nav-item">Stockists</li>
+          <li className="nav-item">Locations</li>
         </ul>
       </div>
     </nav>

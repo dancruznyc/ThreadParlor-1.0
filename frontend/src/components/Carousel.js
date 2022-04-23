@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState } from "react";
 import "./Carousel.css";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { CSSTransition } from "react-transition-group";
+import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 
 const Carousel = () => {
   const [sliderIndex, setSliderIndex] = useState(1);
   const [styleNames, setStyleNames] = useState("carousel-slide--transition");
+  const [progressActive, setProgressActive] = useState(
+    "carousel-progress-btn--active"
+  );
 
   let transformStyles = {
     transform: `translateX(-${sliderIndex * 100}%)`,
@@ -76,14 +77,14 @@ const Carousel = () => {
         value="left"
         onClick={moveCarouselLeft}
       >
-        <ChevronLeftIcon sx={{ fontSize: 40 }} />
+        <AiFillCaretLeft />
       </button>
       <button
         className="carousel-right-btn"
         value="right"
         onClick={moveCarouselRight}
       >
-        <ChevronRightIcon sx={{ fontSize: 40 }} />
+        <AiFillCaretRight />
       </button>
 
       <div
@@ -94,6 +95,11 @@ const Carousel = () => {
         {carouselImgs.map((data) => (
           <img key={data.id} src={data.url} alt={data.alt} />
         ))}
+      </div>
+      <div className="carousel-progress">
+        <div className="carousel-progress-btn carousel-progress-left"></div>
+        <div className="carousel-progress-btn carousel-progress-middle"></div>
+        <div className="carousel-progress-btn carousel-progress-right"></div>
       </div>
     </div>
   );

@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Carousel.css";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import { CSSTransition } from "react-transition-group";
 
 const Carousel = () => {
   const [sliderIndex, setSliderIndex] = useState(1);
-  const [transControl, setTransControl] = useState(
-    "carousel-slide--transition"
+  const [quickSwitch, setQuickSwitch] = useState(
+    "carousel-slide--quick-switch"
   );
-  let transformStyles = { transform: `translateX(-${sliderIndex * 100}%)` };
+
+  let transformStyles = {
+    transform: `translateX(-${sliderIndex * 100}%)`,
+    transition: `transform ${sliderIndex === 0 ? "0s" : "0.4s"} ease-in-out`,
+  };
   const carouselImgs = [
     {
       id: "Pic-3-copy",
@@ -41,20 +46,21 @@ const Carousel = () => {
     setSliderIndex((prevState) => {
       return prevState - 1;
     });
-
-    if (sliderIndex === 1) {
-      setTimeout(() => {
-        setTransControl("");
-        setSliderIndex(carouselImgs.length - 2);
-        setTimeout(() => setTransControl("carousel-slide--transition"), 10);
-      }, 400);
-    }
   }
   function moveCarouselRight(e) {
     setSliderIndex((prevState) => {
       return prevState + 1;
     });
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (sliderIndex !== 0) return;
+      else {
+        setSliderIndex(carouselImgs.length - 2);
+      }
+    }, 400);
+  }, [sliderIndex]);
 
   return (
     <div className="carousel--container">
@@ -74,7 +80,7 @@ const Carousel = () => {
         <ChevronRightIcon sx={{ fontSize: 40 }} />
       </button>
 
-      <div className={`carousel-slide ${transControl}`} style={transformStyles}>
+      <div className="carousel-slide" style={transformStyles}>
         {carouselImgs.map((data) => (
           <img key={data.id} src={data.url} alt={data.alt} />
         ))}

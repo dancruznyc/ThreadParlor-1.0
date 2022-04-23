@@ -23,8 +23,9 @@
   transition: transform 0.4s ease-in-out;
 }
 
-.carousel-slide-enter {
-  transition: none;
+.carousel-slide--notransition {
+  transition: transform 0s ease-in-out;
+  transition-delay: 1ms;
 }
 
 .carousel-left-btn {

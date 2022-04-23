@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import "./Carousel.css";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -6,13 +6,10 @@ import { CSSTransition } from "react-transition-group";
 
 const Carousel = () => {
   const [sliderIndex, setSliderIndex] = useState(1);
-  const [quickSwitch, setQuickSwitch] = useState(
-    "carousel-slide--quick-switch"
-  );
+  const [styleNames, setStyleNames] = useState("carousel-slide--transition");
 
   let transformStyles = {
     transform: `translateX(-${sliderIndex * 100}%)`,
-    transition: `transform ${sliderIndex === 0 ? "0s" : "0.4s"} ease-in-out`,
   };
   const carouselImgs = [
     {
@@ -44,23 +41,32 @@ const Carousel = () => {
 
   function moveCarouselLeft(e) {
     setSliderIndex((prevState) => {
+      console.log(prevState);
       return prevState - 1;
     });
+    console.log(transformStyles);
   }
   function moveCarouselRight(e) {
+    if (sliderIndex > 3) return;
     setSliderIndex((prevState) => {
+      console.log(prevState);
       return prevState + 1;
     });
+    console.log(transformStyles);
   }
 
-  useEffect(() => {
-    setTimeout(() => {
-      if (sliderIndex !== 0) return;
-      else {
-        setSliderIndex(carouselImgs.length - 2);
-      }
-    }, 400);
-  }, [sliderIndex]);
+  function switchSides(e) {
+    console.log(e);
+    if (sliderIndex < 1) {
+      setStyleNames("carousel-slide--notransition");
+      setSliderIndex(carouselImgs.length - 2);
+    } else if (sliderIndex > carouselImgs.length - 2) {
+      setStyleNames("carousel-slide--notransition");
+      setSliderIndex(1);
+    } else {
+      setStyleNames("carousel-slide--transition");
+    }
+  }
 
   return (
     <div className="carousel--container">
@@ -80,7 +86,11 @@ const Carousel = () => {
         <ChevronRightIcon sx={{ fontSize: 40 }} />
       </button>
 
-      <div className="carousel-slide" style={transformStyles}>
+      <div
+        className={`carousel-slide ${styleNames}`}
+        style={transformStyles}
+        onTransitionEnd={switchSides}
+      >
         {carouselImgs.map((data) => (
           <img key={data.id} src={data.url} alt={data.alt} />
         ))}

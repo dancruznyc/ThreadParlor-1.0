@@ -1,7 +1,15 @@
 .home--container {
-  width: 100vw;
+  max-width: 100vw;
   padding-top: 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.lookbook--selected-img {
+  max-width: 100vw;
+}
+
+.lookbook--selected-img img {
+  width: 100%;
 }

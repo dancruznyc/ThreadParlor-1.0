@@ -71,20 +71,19 @@ const Carousel = () => {
 
   return (
     <div className="carousel--container">
-      <div className="carousel-progress"></div>
       <button
         className="carousel-left-btn"
         value="left"
         onClick={moveCarouselLeft}
       >
-        <AiFillCaretLeft />
+        <AiFillCaretLeft className="left-arrow" />
       </button>
       <button
         className="carousel-right-btn"
         value="right"
         onClick={moveCarouselRight}
       >
-        <AiFillCaretRight />
+        <AiFillCaretRight className="right-arrow" />
       </button>
 
       <div

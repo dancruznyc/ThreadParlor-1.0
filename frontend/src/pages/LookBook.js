@@ -3,7 +3,7 @@ import "./LookBook.css";
 
 const LookBook = () => {
   const [imgSelected, setImgSelected] = useState(
-    "https://live.staticflickr.com/65535/52026871868_5a1f771321_h.jpg"
+    "https://live.staticflickr.com/65535/52027348210_d7939a085d_h.jpg"
   );
 
   function gallerySelector(e) {
@@ -13,9 +13,11 @@ const LookBook = () => {
   return (
     <section className="lookbook--container">
       <h1 className="lookbook--title">Look Book 2023</h1>
+
       <div className="lookbook--selected-img">
         <img src={imgSelected} />
       </div>
+
       <div className="lookbook--gallery" onClick={gallerySelector}>
         <div>
           <img

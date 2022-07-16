@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "../components/Carousel";
 import NewsLetter from "../components/NewsLetter";
 import ShopItemCard from "../components/ShopItemCard";
+import FeaturedItems from "../components/FeaturedItems";
 import "./Home.css";
 
 const Home = () => {
@@ -15,7 +16,7 @@ const Home = () => {
   return (
     <div className="home--container">
       <Carousel />
-      <ShopItemCard shopItemData={mockup} />
+      <FeaturedItems featuredItemsList={[]} />
 
       <NewsLetter />
     </div>

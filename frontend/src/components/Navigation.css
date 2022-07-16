@@ -11,10 +11,16 @@
 .nav-top {
   height: 35%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   font-size: 2rem;
   color: #ffffff;
+  flex: 2;
+}
+
+.nav-top-left {
+  flex: 1;
+  text-align: center;
 }
 
 .nav-cta {
@@ -25,6 +31,22 @@
   align-items: center;
   border-right: solid 1px white;
   border-left: solid 1px white;
+}
+
+.nav-icons {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-icons a {
+  height: 20px;
+  color: white;
+  margin: 0 0.7rem;
+  text-decoration: none;
+}
+.nav-icons a:first-of-type {
+  margin-left: 1.4rem;
 }
 
 .nav-bottom {
@@ -55,6 +77,18 @@
 
 .navigation--active {
   top: -3.5rem;
+}
+
+.nav-logo a {
+  text-decoration: none;
+  color: white;
+  font-size: 2.2rem;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.8rem;
 }
 
 @media all and (max-width: 900px) {
